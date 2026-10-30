@@ -1,0 +1,453 @@
+/* =========================================================
+   后台管理公共样式（全局，类名统一 a- 前缀，不会影响首页）
+   由 AdminLayout 引入一次
+   ========================================================= */
+
+:root {
+  --a-pink: #ff4f8b;
+  --a-pink-light: #ff8ab8;
+  --a-pink-soft: #fff0f6;
+  --a-pink-line: #ffd9e8;
+  --a-text: #5c3d4a;
+  --a-text-sub: #a97e90;
+  --a-bg: #fff6fa;
+  --a-white: #ffffff;
+  --a-danger: #e0346b;
+  --a-radius: 16px;
+  --a-shadow: 0 10px 26px rgba(255, 105, 160, 0.14);
+}
+
+/* ---------------- 卡片 ---------------- */
+.a-card {
+  background: var(--a-white);
+  border: 2px solid var(--a-pink-line);
+  border-radius: var(--a-radius);
+  box-shadow: var(--a-shadow);
+}
+
+.a-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 16px 18px;
+  border-bottom: 1px solid #ffe9f2;
+}
+
+.a-card-head h2 {
+  margin: 0;
+  font-size: 15px;
+  color: var(--a-pink);
+  letter-spacing: 0.5px;
+}
+
+.a-card-body {
+  padding: 16px 18px;
+}
+
+/* ---------------- 按钮 ---------------- */
+.a-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 16px;
+  border-radius: 50px;
+  border: 2px solid var(--a-pink-line);
+  background: #fff;
+  color: var(--a-pink);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.18s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.a-btn:hover:not(:disabled) {
+  border-color: var(--a-pink);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(255, 79, 139, 0.2);
+}
+
+.a-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.a-btn.primary {
+  border-color: transparent;
+  background: linear-gradient(135deg, #ff6fa5, #ff4f8b);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(255, 79, 139, 0.32);
+}
+
+.a-btn.primary:hover:not(:disabled) {
+  box-shadow: 0 8px 20px rgba(255, 79, 139, 0.42);
+}
+
+.a-btn.ghost {
+  border-color: transparent;
+  background: transparent;
+  color: var(--a-text-sub);
+  font-weight: 500;
+  padding: 6px 10px;
+}
+
+.a-btn.ghost:hover:not(:disabled) {
+  background: var(--a-pink-soft);
+  color: var(--a-pink);
+  box-shadow: none;
+  transform: none;
+}
+
+.a-btn.danger {
+  border-color: #ffcddb;
+  color: var(--a-danger);
+  background: #fff6f9;
+}
+
+.a-btn.danger:hover:not(:disabled) {
+  border-color: var(--a-danger);
+  box-shadow: 0 6px 14px rgba(224, 52, 107, 0.18);
+}
+
+.a-btn.sm {
+  padding: 5px 12px;
+  font-size: 12px;
+}
+
+/* ---------------- 表单 ---------------- */
+.a-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.a-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--a-text-sub);
+}
+
+.a-label .req {
+  color: var(--a-danger);
+  margin-left: 2px;
+}
+
+.a-input,
+.a-select,
+.a-textarea {
+  width: 100%;
+  padding: 9px 13px;
+  border: 2px solid var(--a-pink-line);
+  border-radius: 12px;
+  background: #fffafc;
+  color: var(--a-text);
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  transition: 0.18s;
+  box-sizing: border-box;
+}
+
+.a-input::placeholder,
+.a-textarea::placeholder {
+  color: #d9a8bd;
+}
+
+.a-input:focus,
+.a-select:focus,
+.a-textarea:focus {
+  border-color: var(--a-pink);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 79, 139, 0.13);
+}
+
+.a-textarea {
+  resize: vertical;
+  min-height: 66px;
+  line-height: 1.6;
+}
+
+.a-hint {
+  font-size: 11px;
+  color: #c9a3b3;
+}
+
+/* ---------------- 表格 ---------------- */
+.a-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.a-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 720px;
+}
+
+.a-table th {
+  text-align: left;
+  padding: 11px 12px;
+  background: #fff4f9;
+  color: #b96a8d;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 1px solid #ffe3ee;
+}
+
+.a-table th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.a-table th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.a-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid #fff0f6;
+  color: var(--a-text);
+  vertical-align: middle;
+}
+
+.a-table tbody tr {
+  transition: background 0.15s;
+}
+
+.a-table tbody tr:hover {
+  background: #fffafc;
+}
+
+.a-table .num {
+  font-variant-numeric: tabular-nums;
+  color: var(--a-text-sub);
+}
+
+.a-actions {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+/* ---------------- 状态标签 ---------------- */
+.a-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 9px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.a-badge.on {
+  background: #eafaf0;
+  color: #22a06b;
+}
+
+.a-badge.off {
+  background: #f3f3f5;
+  color: #96909a;
+}
+
+.a-badge.hot {
+  background: #fff0f6;
+  color: var(--a-pink);
+}
+
+.a-badge.lv1 {
+  background: #fff0f6;
+  color: var(--a-pink);
+}
+
+.a-badge.lv2 {
+  background: #f2f0ff;
+  color: #7c6bd6;
+}
+
+/* ---------------- 分页 ---------------- */
+.a-pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 18px;
+  border-top: 1px solid #ffe9f2;
+  flex-wrap: wrap;
+}
+
+.a-pager-info {
+  font-size: 12px;
+  color: var(--a-text-sub);
+}
+
+.a-pager-btns {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.a-pager-num {
+  font-size: 12px;
+  color: var(--a-text-sub);
+  padding: 0 6px;
+}
+
+/* ---------------- 空状态 ---------------- */
+.a-empty {
+  padding: 46px 20px;
+  text-align: center;
+}
+
+.a-empty .ico {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+.a-empty h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  color: var(--a-pink);
+}
+
+.a-empty p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--a-text-sub);
+}
+
+/* ---------------- 弹窗 ---------------- */
+.a-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(90, 45, 66, 0.32);
+  backdrop-filter: blur(3px);
+  box-sizing: border-box;
+}
+
+.a-modal {
+  width: 560px;
+  max-width: 100%;
+  max-height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 20px;
+  border: 2px solid var(--a-pink-line);
+  box-shadow: 0 24px 60px rgba(150, 60, 100, 0.28);
+  overflow: hidden;
+}
+
+.a-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #fff2f8, #ffe6f1);
+  border-bottom: 1px solid #ffe3ee;
+}
+
+.a-modal-head h3 {
+  margin: 0;
+  font-size: 15px;
+  color: var(--a-pink);
+}
+
+.a-modal-x {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  color: #c984a6;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  transition: 0.18s;
+}
+
+.a-modal-x:hover {
+  background: var(--a-pink);
+  color: #fff;
+}
+
+.a-modal-body {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.a-modal-foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 13px 20px;
+  border-top: 1px solid #ffe9f2;
+  background: #fffafc;
+}
+
+/* 弹窗动画 */
+.a-fade-enter-active,
+.a-fade-leave-active {
+  transition: opacity 0.2s;
+}
+
+.a-fade-enter-from,
+.a-fade-leave-to {
+  opacity: 0;
+}
+
+.a-fade-enter-active .a-modal,
+.a-fade-leave-active .a-modal {
+  transition: transform 0.22s ease;
+}
+
+.a-fade-enter-from .a-modal,
+.a-fade-leave-to .a-modal {
+  transform: translateY(14px) scale(0.98);
+}
+
+/* ---------------- 轻提示 ---------------- */
+.a-toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 300;
+  max-width: min(560px, calc(100vw - 32px));
+  padding: 11px 22px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff6fa5, #ff4f8b);
+  color: #fff;
+  font-size: 13px;
+  box-shadow: 0 10px 26px rgba(255, 79, 139, 0.42);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.a-toast.error {
+  background: linear-gradient(135deg, #f0688f, #d92a62);
+}
+
+.a-toast-enter-active,
+.a-toast-leave-active {
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.a-toast-enter-from,
+.a-toast-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-14px);
+}
