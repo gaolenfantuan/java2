@@ -1,0 +1,65 @@
+server:
+  port: 8080
+  # 监听所有网卡，局域网内用 http://192.168.68.53:8080 就能访问（这也是默认值，写出来更直观）
+  address: 0.0.0.0
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+
+spring:
+  application:
+    name: springBootTest
+
+  # ================= H2 内存数据库 =================
+  # 说明：
+  #   1) mem:hello_kitty 表示数据只在内存里，重启后清空（每次启动重新执行 db/schema.sql + db/data.sql）
+  #   2) MODE=MySQL 让 H2 兼容 MySQL 的 SQL 语法
+  #   3) NON_KEYWORDS=USER 允许使用 user 作为表名（H2 里 USER 是关键字）
+  #   4) DB_CLOSE_DELAY=-1 保证连接关闭后内存库不消失
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:hello_kitty;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;NON_KEYWORDS=USER
+    username: sa
+    password: ""
+
+  # 启动时自动执行建表 / 初始化数据的脚本
+  #   schema.sql / data.sql  —— 原有 4 张业务表，内容一字未改
+  #   game_schema.sql / game_data.sql —— 后来追加的小游戏模块，独立成两个文件，
+  #                                     加载顺序排在原有脚本之后，互不影响
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/schema.sql,classpath:db/game_schema.sql
+      data-locations: classpath:db/data.sql,classpath:db/game_data.sql
+      encoding: UTF-8
+
+  # 浏览器访问 http://192.168.68.53:8080/h2-console 可以直接看表里的数据
+  # JDBC URL 填：jdbc:h2:mem:hello_kitty  用户名 sa  密码留空
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        # 用局域网 IP 访问时 H2 认为不是本机，必须放开，否则控制台打不开
+        web-allow-others: true
+
+mybatis-plus:
+  type-aliases-package: com.example.springboottest.entity
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    # 数据库下划线字段 -> Java 驼峰属性（create_time -> createTime）
+    map-underscore-to-camel-case: true
+    # 开发阶段打印 SQL，上线时可关掉
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+logging:
+  level:
+    com.example.springboottest: debug

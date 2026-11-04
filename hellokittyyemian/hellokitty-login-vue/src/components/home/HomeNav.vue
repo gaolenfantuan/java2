@@ -12,7 +12,8 @@ const props = defineProps({
 
 const emit = defineEmits(['update:keyword', 'select-tab', 'logout'])
 
-const tabs = ['首页', '发现', '收藏', '我的']
+// 新增「小游戏」页签（原有四个页签保持不变）
+const tabs = ['首页', '发现', '收藏', '我的', '小游戏']
 const menuOpen = ref(false)
 
 const displayName = computed(() => props.user.nickname || props.user.username || '小猫咪')

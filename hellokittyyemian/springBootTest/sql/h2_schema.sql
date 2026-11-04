@@ -5,7 +5,7 @@
 --        正常情况下你不需要手动跑这个文件。
 --        本文件用于：想在 H2 控制台 / DBeaver 里手动执行时使用。
 --
---  H2 控制台地址：http://localhost:8080/h2-console
+--  H2 控制台地址：http://192.168.68.53:8080/h2-console
 --    JDBC URL : jdbc:h2:mem:hello_kitty;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;NON_KEYWORDS=USER
 --    用户名    : sa
 --    密码      : （留空）

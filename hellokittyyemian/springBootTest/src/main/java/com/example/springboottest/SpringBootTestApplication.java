@@ -16,9 +16,9 @@ public class SpringBootTestApplication {
                 
                 ==========================================
                   Hello Kitty 后端启动成功！
-                  登录接口  POST http://localhost:8080/api/auth/login
-                  注册接口  POST http://localhost:8080/api/auth/register
-                  H2 控制台 http://localhost:8080/h2-console
+                  登录接口  POST http://192.168.68.53:8080/api/auth/login
+                  注册接口  POST http://192.168.68.53:8080/api/auth/register
+                  H2 控制台 http://192.168.68.53:8080/h2-console
                 ==========================================
                 """);
     }

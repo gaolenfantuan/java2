@@ -85,9 +85,9 @@ echo        编译完成，jar 已缓存到 .build-cache，下次开机秒开
 rem ---------------- 4. 启动 ----------------
 echo.
 echo [4/4] 启动服务 ...
-echo        登录接口   POST http://localhost:8080/api/auth/login
-echo        注册接口   POST http://localhost:8080/api/auth/register
-echo        H2 控制台  http://localhost:8080/h2-console  (sa / 空密码)
+echo        登录接口   POST http://192.168.68.53:8080/api/auth/login
+echo        注册接口   POST http://192.168.68.53:8080/api/auth/register
+echo        H2 控制台  http://192.168.68.53:8080/h2-console  (sa / 空密码)
 echo        演示账号   kitty / 1234
 echo        停止服务   双击 scripts\停止后端.bat
 echo.

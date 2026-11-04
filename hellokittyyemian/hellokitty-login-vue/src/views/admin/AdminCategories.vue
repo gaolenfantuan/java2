@@ -159,7 +159,7 @@ async function doDelete() {
       <div v-if="listError" class="a-empty">
         <div class="ico">😿</div>
         <h3>{{ listError }}</h3>
-        <p style="margin-bottom: 14px">确认后端已启动（localhost:8080）后重试</p>
+        <p style="margin-bottom: 14px">确认后端已启动（192.168.68.53:8080）后重试</p>
         <button class="a-btn" @click="load">重新加载</button>
       </div>
 

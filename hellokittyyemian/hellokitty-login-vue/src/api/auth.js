@@ -1,6 +1,6 @@
 /**
  * 登录 / 注册接口封装
- * Vite 已配置代理：/api -> http://localhost:8080
+ * Vite 已配置代理：/api -> http://192.168.68.53:8080
  * 所以这里写相对路径就行，不用写完整域名。
  */
 
@@ -20,7 +20,7 @@ async function request(path, options = {}) {
     })
   } catch (e) {
     // 网络层直接失败，通常是后端没启动
-    throw new Error('连不上服务器，请确认后端已经启动（localhost:8080）')
+    throw new Error('连不上服务器，请确认后端已经启动（192.168.68.53:8080）')
   }
 
   let body

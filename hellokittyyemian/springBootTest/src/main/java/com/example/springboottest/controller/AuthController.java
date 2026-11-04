@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 登录 / 注册接口
  *
- * 前端（Vite 已配置 /api 代理到 localhost:8080）调用的路径：
- *   POST http://localhost:5173/api/auth/register
- *   POST http://localhost:5173/api/auth/login
- *   GET  http://localhost:5173/api/auth/check?username=xxx
+ * 前端（Vite 已配置 /api 代理到 192.168.68.53:8080）调用的路径：
+ *   POST http://192.168.68.53:5173/api/auth/register
+ *   POST http://192.168.68.53:5173/api/auth/login
+ *   GET  http://192.168.68.53:5173/api/auth/check?username=xxx
  */
 @RestController
 @RequestMapping("/api/auth")

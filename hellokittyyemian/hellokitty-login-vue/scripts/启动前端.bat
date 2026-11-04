@@ -47,8 +47,8 @@ echo         依赖就绪
 
 rem ---------------- 3. 启动 ----------------
 echo [3/3] 启动开发服务器 ...
-echo         页面地址  http://localhost:5173
-echo         后端接口  页面里的 /api 请求会代理到 http://localhost:8080
+echo         页面地址  http://192.168.68.53:5173
+echo         后端接口  页面里的 /api 请求会代理到 http://192.168.68.53:8080
 echo         停止服务  双击 scripts\停止前端.bat
 echo.
 call npm run dev

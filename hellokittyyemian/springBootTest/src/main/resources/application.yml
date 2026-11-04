@@ -1,5 +1,7 @@
 server:
   port: 8080
+  # 监听所有网卡，局域网内用 http://192.168.68.53:8080 就能访问（这也是默认值，写出来更直观）
+  address: 0.0.0.0
   servlet:
     encoding:
       charset: utf-8
@@ -22,21 +24,25 @@ spring:
     password: ""
 
   # 启动时自动执行建表 / 初始化数据的脚本
+  #   schema.sql / data.sql  —— 原有 4 张业务表，内容一字未改
+  #   game_schema.sql / game_data.sql —— 后来追加的小游戏模块，独立成两个文件，
+  #                                     加载顺序排在原有脚本之后，互不影响
   sql:
     init:
       mode: always
-      schema-locations: classpath:db/schema.sql
-      data-locations: classpath:db/data.sql
+      schema-locations: classpath:db/schema.sql,classpath:db/game_schema.sql
+      data-locations: classpath:db/data.sql,classpath:db/game_data.sql
       encoding: UTF-8
 
-  # 浏览器访问 http://localhost:8080/h2-console 可以直接看表里的数据
+  # 浏览器访问 http://192.168.68.53:8080/h2-console 可以直接看表里的数据
   # JDBC URL 填：jdbc:h2:mem:hello_kitty  用户名 sa  密码留空
   h2:
     console:
       enabled: true
       path: /h2-console
       settings:
-        web-allow-others: false
+        # 用局域网 IP 访问时 H2 认为不是本机，必须放开，否则控制台打不开
+        web-allow-others: true
 
 mybatis-plus:
   type-aliases-package: com.example.springboottest.entity

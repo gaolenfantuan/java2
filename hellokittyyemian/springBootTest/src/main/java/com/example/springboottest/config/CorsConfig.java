@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * 跨域配置
  * 前端 Vite 已经配了 /api 代理，其实不走跨域；
- * 这里额外放开是为了方便直接用 http://localhost:5173 直连后端调试。
+ * 这里额外放开是为了方便直接用 http://192.168.68.53:5173 直连后端调试。
  */
 @Configuration
 public class CorsConfig implements WebMvcConfigurer {

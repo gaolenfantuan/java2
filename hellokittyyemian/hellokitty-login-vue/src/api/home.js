@@ -1,6 +1,6 @@
 /**
  * 首页接口封装
- * Vite 已配置代理：/api -> http://localhost:8080
+ * Vite 已配置代理：/api -> http://192.168.68.53:8080
  *
  * 后端统一返回 { code, message, data }：
  *   code === 200 时返回 data，否则抛 Error（message 就是后端的中文提示）
@@ -20,7 +20,7 @@ async function request(path, params) {
     res = await fetch(url)
   } catch (e) {
     // 网络层失败，通常是后端没启动
-    throw new Error('连不上服务器，请确认后端已经启动（localhost:8080）')
+    throw new Error('连不上服务器，请确认后端已经启动（192.168.68.53:8080）')
   }
 
   let body

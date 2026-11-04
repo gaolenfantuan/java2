@@ -17,12 +17,12 @@ import java.util.List;
 /**
  * 首页接口（搜索 + 内容展示 + 分类筛选）
  *
- * 前端（Vite 已把 /api 代理到 localhost:8080）调用：
- *   GET http://localhost:5173/api/home/categories
- *   GET http://localhost:5173/api/home/items?keyword=草莓&categoryId=1&sort=hot&page=1&size=12
- *   GET http://localhost:5173/api/home/hot?limit=6
- *   GET http://localhost:5173/api/home/items/1
- *   GET http://localhost:5173/api/home/stats
+ * 前端（Vite 已把 /api 代理到 192.168.68.53:8080）调用：
+ *   GET http://192.168.68.53:5173/api/home/categories
+ *   GET http://192.168.68.53:5173/api/home/items?keyword=草莓&categoryId=1&sort=hot&page=1&size=12
+ *   GET http://192.168.68.53:5173/api/home/hot?limit=6
+ *   GET http://192.168.68.53:5173/api/home/items/1
+ *   GET http://192.168.68.53:5173/api/home/stats
  */
 @RestController
 @RequestMapping("/api/home")

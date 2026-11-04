@@ -6,7 +6,7 @@ Hello Kitty 主题登录 / 注册 / 首页 —— Vue 3 + Vite + vue-router，�
 
 ```bash
 npm install      # 首次运行安装依赖
-npm run dev      # 开发服务器 http://localhost:5173
+npm run dev      # 开发服务器 http://192.168.68.53:5173
 npm run build    # 打包生产版本到 dist
 ```
 
@@ -49,7 +49,7 @@ npm run build    # 打包生产版本到 dist
 ```
 hellokitty-login-vue/
 ├── index.html
-├── vite.config.js               # 含 /api 代理 -> http://localhost:8080
+├── vite.config.js               # 含 /api 代理 -> http://192.168.68.53:8080
 ├── .npmrc                       # 固定国内镜像源（本机访问 npmjs 会超时）
 ├── src/
 │   ├── main.js                  # 注册路由
@@ -101,5 +101,5 @@ hellokitty-login-vue/
 - 页面提示"连不上服务器"→ 后端没启动，或端口不是 8080
 - 后端已改成 H2 内存数据库，**不需要装 MySQL**，启动即用
 - 演示账号：`kitty` / `1234`；数据在内存里，后端重启会清空（只剩演示账号）
-- 想看数据库里的用户：浏览器打开 http://localhost:8080/h2-console ，JDBC URL 填 `jdbc:h2:mem:hello_kitty`，用户 `sa`，密码留空
+- 想看数据库里的用户：浏览器打开 http://192.168.68.53:8080/h2-console ，JDBC URL 填 `jdbc:h2:mem:hello_kitty`，用户 `sa`，密码留空
 - `npm install` 卡住不动 → 本机访问 npmjs 会超时，项目里 `.npmrc` 已指向 npmmirror，确认它在项目根目录

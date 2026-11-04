@@ -31,7 +31,7 @@ import java.util.List;
  * 除登录接口外，所有 /api/admin/** 都要在请求头带 X-Admin-Token，
  * 没带或过期会被 AdminAuthInterceptor 拦下（返回 code 401）。
  *
- * 前端（Vite 代理 /api -> localhost:8080）调用：
+ * 前端（Vite 代理 /api -> 192.168.68.53:8080）调用：
  *   POST   /api/admin/auth/login              登录
  *   GET    /api/admin/auth/me                 当前登录信息（刷新页面时校验）
  *   POST   /api/admin/auth/logout             退出

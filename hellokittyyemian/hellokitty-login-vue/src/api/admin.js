@@ -44,7 +44,7 @@ async function request(path, { method = 'GET', body, params } = {}) {
       body: body === undefined ? undefined : JSON.stringify(body)
     })
   } catch (e) {
-    throw new Error('连不上服务器，请确认后端已经启动（localhost:8080）')
+    throw new Error('连不上服务器，请确认后端已经启动（192.168.68.53:8080）')
   }
 
   let data

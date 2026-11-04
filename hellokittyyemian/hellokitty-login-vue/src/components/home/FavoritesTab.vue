@@ -6,9 +6,16 @@
 import { ref, computed, onMounted } from 'vue'
 import { fetchItems, fetchItemDetail } from '../../api/home.js'
 import { getFavorites, removeFavorite } from '../../utils/favorites.js'
+import { getUser } from '../../utils/auth.js'
+// 新增：收集图鉴（来自小游戏模块，独立接口，不影响收藏逻辑）
+import CollectBook from '../game/CollectBook.vue'
 import { showToast } from '../../utils/toast.js'
 
 const emit = defineEmits(['jump'])
+
+// 新增：两个页签 —— 收藏（原有） / 收集图鉴（新增）
+const mode = ref('fav')
+const userId = computed(() => Number(getUser()?.id) || 0)
 
 const allItems = ref([])
 const favIds = ref([])          // [{ id, ts }] 按收藏时间倒序
@@ -62,6 +69,13 @@ onMounted(load)
 
 <template>
   <div class="favs">
+    <!-- 新增：收藏 / 收集图鉴 两个页签 -->
+    <div class="fav-switch">
+      <button class="fs-btn" :class="{ on: mode === 'fav' }" @click="mode = 'fav'">💗 我的收藏</button>
+      <button class="fs-btn" :class="{ on: mode === 'book' }" @click="mode = 'book'">📖 收集图鉴</button>
+    </div>
+
+    <div v-show="mode === 'fav'">
     <!-- 标题条 -->
     <div class="sec-head">
       <h2>💗 我的收藏</h2>
@@ -104,11 +118,44 @@ onMounted(load)
         </div>
       </article>
     </div>
+    </div>
+
+    <!-- 新增：收集图鉴页签 -->
+    <CollectBook v-show="mode === 'book'" :user-id="userId" />
   </div>
 </template>
 
 <style scoped>
 .favs { animation: fadeUp 0.45s ease backwards; }
+
+/* 新增：收藏 / 图鉴 切换 */
+.fav-switch {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 14px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 2px solid #ffd9e8;
+}
+.fs-btn {
+  padding: 7px 18px;
+  border: none;
+  border-radius: 50px;
+  background: transparent;
+  color: #b96a8d;
+  font-size: 12.5px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.fs-btn:hover { color: #ff4f8b; }
+.fs-btn.on {
+  background: linear-gradient(135deg, #ff6fa5, #ff4f8b);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(255, 79, 139, 0.3);
+}
 
 .sec-head { display: flex; align-items: baseline; gap: 10px; margin: 0 0 14px; }
 .sec-head h2 { margin: 0; font-size: 17px; color: #ff4f8b; }

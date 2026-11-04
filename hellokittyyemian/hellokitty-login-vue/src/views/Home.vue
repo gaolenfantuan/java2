@@ -8,6 +8,8 @@ import CardItem from '../components/home/CardItem.vue'
 import DiscoverTab from '../components/home/DiscoverTab.vue'
 import FavoritesTab from '../components/home/FavoritesTab.vue'
 import ProfileTab from '../components/home/ProfileTab.vue'
+// 新增：四个小游戏（独立模块，只有这里引一下，原有逻辑不变）
+import GamesTab from '../components/game/GamesTab.vue'
 import { getUser, clearUser } from '../utils/auth.js'
 import { fetchCategories, fetchItems, fetchStats, fetchItemDetail } from '../api/home.js'
 
@@ -359,6 +361,10 @@ onMounted(async () => {
       </template>
       <template v-else-if="activeTab === '我的'">
         <ProfileTab @jump="onSelectTab" />
+      </template>
+      <!-- 新增：小游戏页签（卡片收集 / 每日打卡 / 趣味答题 / 幸运抽奖） -->
+      <template v-else-if="activeTab === '小游戏'">
+        <GamesTab />
       </template>
 
       <!-- 其他页面占位（按需求先不做） -->

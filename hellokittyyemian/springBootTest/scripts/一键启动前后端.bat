@@ -25,7 +25,7 @@ echo        如果前端项目换了位置，直接双击那个目录下的 scripts\启动前端.bat 即可
 echo.
 echo 两个窗口已经打开。
 echo   后端首次启动要编译 30 秒左右，等它打印 "Hello Kitty 后端启动成功！" 再操作页面。
-echo   然后浏览器打开： http://localhost:5173
+echo   然后浏览器打开： http://192.168.68.53:5173
 echo.
 echo 停止全部服务：双击 scripts\一键停止全部.bat
 ping -n 9 127.0.0.1 >nul
